@@ -56,13 +56,13 @@ void SerialComm::sendCommand(esp32::outgoing::Command command) {
         if constexpr (std::is_same_v<T, SetBalanceCoord>) {
             ts << "{SET_BALANCE_COORD " << arg.x << ' ' << arg.y << '\n';
         } else if constexpr (std::is_same_v<T, MoveLeft>) {
-            ts << "A";
+            ts << "{MOVE_LEFT ";
         } else if constexpr (std::is_same_v<T, MoveRight>) {
-            ts << "D";
+            ts << "{MOVE_RIGHT ";
         } else if constexpr (std::is_same_v<T, MoveForward>) {
-            ts << "W";
+            ts << "{MOVE_FORWARD ";
         } else if constexpr (std::is_same_v<T, MoveBackward>) {
-            ts << "S";
+            ts << "{MOVE_BACKWARD ";
         } else {
             static_assert(!sizeof(T), "non-exhaustive visitor");
         }
