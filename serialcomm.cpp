@@ -132,8 +132,6 @@ static std::optional<esp32::incoming::Command> readSerialParse(QSerialPort *seri
 
 
 void SerialComm::readSerial() {
-    qDebug("readSerial");
-
     auto command = readSerialParse(serial_);
     if (command) {
         incomingCommand_ = command;
