@@ -1,7 +1,5 @@
 #pragma once
 
-#include "servercommands.hpp"
-
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -10,6 +8,7 @@ class QLineEdit;
 class QPushButton;
 class QListWidget;
 class QListWidgetItem;
+class QTextEdit;
 QT_END_NAMESPACE
 
 class SerialComm;
@@ -36,4 +35,8 @@ private:
     QHash<Connection*, QListWidgetItem*> connectionToListItem_;
     QListWidgetItem *noneItem_ = nullptr;
     Connection *toggled_ = nullptr;
+    QTextEdit *serialReceiveTextEdit_ = nullptr;
+    QTextEdit *serialSendTextEdit_ = nullptr;
+    QTextEdit *clientReceiveTextEdit_ = nullptr;
+    QTextEdit *clientSendTextEdit_ = nullptr;
 };
