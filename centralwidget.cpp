@@ -178,7 +178,7 @@ void CentralWidget::receiveSerialCommand() {
     using namespace esp32::incoming;
 
     auto now = QTime::currentTime();
-    auto log = QString("%1 %2 %3").arg(now.toString("HH:mm:ss"));
+    auto log = now.toString("HH:mm:ss");
 
     std::visit([&](auto &&arg) {
         using T = std::decay_t<decltype(arg)>;
